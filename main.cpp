@@ -14,7 +14,10 @@ int main() {
     int opc, n = 0;
     Cliente banco[MAX];
     do {
-        cout << "Menu Mi Banco" << endl;
+        for ( int i = 0; i < n; i++ ) {
+            cout << "(" << banco[i].nom << "," << banco[i ].saldo << ")";
+        }
+        cout << "\nMenu Mi Banco" << endl;
         cout << "1. agregar cliente" << endl;
         cout << "2. consignar" << endl;
         cout << "0. salir" << endl;
@@ -28,7 +31,20 @@ int main() {
             cin >> banco[n++].saldo;
             break;
 
-        case 2: break;
+        case 2:
+            string nom;
+            int valor;
+            cout << "Nombre a consignar: ";
+            cin >> nom;
+            for ( int i = 0; i < n; i++ ) {
+                if ( banco[i].nom == nom ) {
+                    cout << "Monto a consignar: ";
+                    cin >> valor;
+                    banco[ i ].saldo += valor;
+                    break;
+                }
+            }
+            break;
         }
     }
     while (opc != 0);
