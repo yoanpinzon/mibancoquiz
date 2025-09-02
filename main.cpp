@@ -14,9 +14,12 @@ int main() {
     int opc, n = 0;
     Cliente banco[MAX];
     do {
+        int suma = 0;
         for ( int i = 0; i < n; i++ ) {
             cout << "(" << banco[i].nom << "," << banco[i ].saldo << ")";
+            suma += banco[i].saldo;
         }
+        cout << "[" << suma << "]" << endl;
         cout << "\nMenu Mi Banco" << endl;
         cout << "1. agregar cliente" << endl;
         cout << "2. consignar" << endl;
